@@ -7,4 +7,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+void print_prompt(void);
+
 #endif
