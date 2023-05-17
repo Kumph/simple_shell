@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * execute_command - executes command
+ * @command: command
+ */
 
 void execute_command(char *command)
 {
