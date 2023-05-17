@@ -25,7 +25,7 @@ unsigned int delim_c(char c, char *delim)
  */
 char *_strtok(char *input_str, char *delim)
 {
-	static char *backup_str; //store starting pt 4 next search//
+	static char *backup_str; /*store starting pt 4 next search*/
 	char *ret;
 
 	if (!input_str)
@@ -43,7 +43,7 @@ char *_strtok(char *input_str, char *delim)
 		{
 			input_str++;
 			continue;
-			//if 1st char is a delim char skip and go to next char//
+			/*if 1st char is a delim char skip and go to next char*/
 		}
 		if (*input_str == '\0')
 		{
