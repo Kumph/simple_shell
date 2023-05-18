@@ -2,34 +2,37 @@
 
 /**
  * main - Simple unix commandline intepreter
- * @argc: argument count
- * @argv: arguments array
+ * Return: 0
  */
-int main(int arg_count, char **args)
+int main(void)
 {
 	char *input = NULL;
-	size_t input_len = 0;
 	ssize_t tchars_read;
+	size_t input_len = 0;
+	char *args[MAX_ARGS];
 
 	while (1)
 	{
-		print_prompt ();
+		print_prompt();
 
 		tchars_read = getline(&input, &input_len, stdin);
 
 		if (tchars_read == -1)
 		{
-			perror("Error: unable to read input\n");
+			perror("Error: unable to read input");
 			break;
 		}
 
+		input[_strlen(input) - 1] = '\0';
+
 		parse_input(input, args);
 
-		execute_command(args[0]);
+		if (args[0] != NULL)
+		{
+			execute_command(args[0]);
+		}
 
-		free(input);
-		input = NULL;
-		input_len = 0;
 	}
-	free (input);
+	free(input);
+	return (0);
 }

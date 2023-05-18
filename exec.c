@@ -13,6 +13,7 @@ void execute_command(char *command)
 	arguments[0] = command;
 	arguments[1] = NULL;
 
+
 	if (pid == -1)
 	{
 		perror("Error");
@@ -23,6 +24,7 @@ void execute_command(char *command)
 		execve(command, arguments, NULL);
 		perror("Error");
 		exit(EXIT_FAILURE);
+
 	}
 	else
 	{
