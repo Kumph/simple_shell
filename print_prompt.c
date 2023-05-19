@@ -6,7 +6,10 @@ void print_prompt(void)
 {
 	char *prompt = "s_shell$ ";
 	int prompt_len = 9;
-
-	write(STDOUT_FILENO, prompt, prompt_len);
+	
+	if (isatty(STDIN_FILENO))
+	{
+		write(STDOUT_FILENO, prompt, prompt_len);
+	}
 	fflush(stdout);
 }
