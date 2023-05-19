@@ -15,7 +15,8 @@ char *get_path(char *cmd)
 	/*iterate through the directories in the path*/
 	while (p != NULL)
 	{
-		char path_buffer[_strlen(p) + _strlen(cmd) + 2];
+		char* path_buffer;
+		path_buffer = malloc((_strlen(p) + _strlen(cmd) + 2) * sizeof(char));
 		_strcpy(path_buffer, p);
 		_strcat(path_buffer, "/");
 		_strcat(path_buffer, cmd);
