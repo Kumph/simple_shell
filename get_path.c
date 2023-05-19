@@ -17,6 +17,12 @@ char *get_path(char *cmd)
 	{
 		char* path_buffer;
 		path_buffer = malloc((_strlen(p) + _strlen(cmd) + 2) * sizeof(char));
+		if (path_buffer == NULL)
+		{
+			perror("Error: unable to allocate memory");
+			return (NULL);
+		}
+
 		_strcpy(path_buffer, p);
 		_strcat(path_buffer, "/");
 		_strcat(path_buffer, cmd);
@@ -31,10 +37,15 @@ char *get_path(char *cmd)
 			}
 			strcpy(result, path_buffer);
 			return (result);
+
+			free(result);
 		}
 
 		p = _strtok(NULL, ":");
+
+		free(path_buffer);
 	}
 	perror ("Error:");
+
 	return (NULL);
 }
