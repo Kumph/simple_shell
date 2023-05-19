@@ -9,7 +9,7 @@ void execute_command(char *cmd, char *arguments[])
 	int status;
 	pid_t pid = fork();
 	char *path = NULL;
-
+	
 	arguments[0] = cmd;
 	arguments[1] = NULL;
 
@@ -31,5 +31,5 @@ void execute_command(char *cmd, char *arguments[])
 	{
 		waitpid(pid, &status, 0);
 	}
-}
 
+}
