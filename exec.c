@@ -4,11 +4,10 @@
  * @command: command
  */
 
-void execute_command(char *cmd)
+void execute_command(char *cmd, char *arguments[])
 {
 	int status;
 	pid_t pid = fork();
-	char *arguments[3];
 	char *path = NULL;
 
 	arguments[0] = cmd;
