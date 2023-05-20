@@ -29,8 +29,10 @@ int main(void)
 
 		if (args[0] != NULL)
 		{
-			execute_command(args[0], args);
+			execute_command(args);
 		}
+		free(input);
+		input = NULL;
 
 	}
 	free(input);

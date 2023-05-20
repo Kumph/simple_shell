@@ -5,7 +5,7 @@
  * @input: user input
  * @args: variable to which we will store tokens as input args
  */
-void parse_input(char *input, char **args)
+void parse_input(char *input, char *args[])
 {
 	int arg_count = 0;
 	char *token;

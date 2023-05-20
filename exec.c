@@ -4,16 +4,16 @@
  * @command: command
  */
 
-void execute_command(char *cmd, char *arguments[])
+void execute_command(char *args[])
 {
 	int status;
 	pid_t pid = fork();
 	char *path = NULL;
 	
-	arguments[0] = cmd;
-	arguments[1] = NULL;
+	/*arguments[0] = cmd;
+	arguments[1] = NULL;*/
 
-	path = get_path(cmd);
+	path = get_path(args[0]);
 
 	if (pid == -1)
 	{
@@ -22,7 +22,7 @@ void execute_command(char *cmd, char *arguments[])
 	}
 	else if (pid == 0)
 	{
-		execve(path, arguments, NULL);
+		execve(path, args, NULL);
 		perror("Error");
 		exit(EXIT_FAILURE);
 

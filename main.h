@@ -17,7 +17,7 @@ char *_strcat(char *dest, char *src);
 void print_prompt(void);
 unsigned int delim_c(char c, char *delim);
 char *_strtok(char *input_str, char *delim);
-void parse_input(char *input, char **args);
+void parse_input(char *input, char *args[]);
 char *get_path(char *cmd);
-void execute_command(char *cmd, char *arguments[]);
+void execute_command(char *args[]);
 #endif
