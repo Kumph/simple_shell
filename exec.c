@@ -7,13 +7,17 @@
 void execute_command(char *args[])
 {
 	int status;
-	pid_t pid = fork();
+	pid_t pid;
 	char *path = NULL;
 	
-	/*arguments[0] = cmd;
-	arguments[1] = NULL;*/
-
 	path = get_path(args[0]);
+	if (path == NULL)
+	{
+		perror("Error: command does not exist");
+		exit(EXIT_FAILURE);
+	}
+
+	pid = fork();
 
 	if (pid == -1)
 	{
