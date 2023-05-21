@@ -9,8 +9,20 @@ char *get_path(char *cmd)
 {
 	char *path = getenv("PATH");
 	char *p;
+	char *p2 = NULL;
 	struct stat st;
-	p = _strtok(path, ":");
+
+	p2 = malloc(_strlen(path) + 1);
+	if (p2 == NULL)
+	{
+		perror("Error: unable to allocate memory");
+		return (NULL);
+	}
+
+	_strcpy(p2, path);
+	p = _strtok(p2, ":");
+
+	free(p2);
 
 	/*iterate through the directories in the path*/
 	while (p != NULL)
@@ -30,15 +42,17 @@ char *get_path(char *cmd)
 		/*checking if the cmd file exists and is a regular file*/
 		if (stat(path_buffer, &st) == 0 && S_ISREG(st.st_mode))
 		{
-			char *result = malloc(_strlen(path_buffer) + 1);
+			char *result = malloc(_strlen(path_buffer) + 1 );
 			if (result == NULL)
 			{
+				free(path_buffer);
 				return (NULL);
 			}
-			strcpy(result, path_buffer);
+			_strcpy(result, path_buffer);
+			free(path_buffer);
 			return (result);
 
-			free(result);
+			/*free(result);*/
 		}
 
 		p = _strtok(NULL, ":");
