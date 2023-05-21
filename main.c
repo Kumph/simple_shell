@@ -10,6 +10,7 @@ int main(void)
 	ssize_t tchars_read;
 	size_t input_len = 0;
 	char *args[MAX_ARGS];
+	int i = 0;
 
 	while (1)
 	{
@@ -31,10 +32,16 @@ int main(void)
 		{
 			execute_command(args);
 		}
+		for (i = 0; i< MAX_ARGS; i++)
+		{
+			args[i] = NULL;
+		}
+		
 		free(input);
 		input = NULL;
 
 	}
 	free(input);
+	input = NULL;
 	return (0);
 }

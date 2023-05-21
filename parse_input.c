@@ -9,7 +9,7 @@ void parse_input(char *input, char *args[])
 {
 	int arg_count = 0;
 	char *token;
-
+		
 	token = _strtok(input, " ");
 
 	while (token != NULL && arg_count < MAX_ARGS - 1)
@@ -19,4 +19,5 @@ void parse_input(char *input, char *args[])
 		token = _strtok(NULL, " ");
 	}
 	args[arg_count] = NULL;
+
 }
