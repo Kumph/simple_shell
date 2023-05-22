@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * execute_command - executes command
- * @command: command
+ * @args: command
  */
 
 void execute_command(char *args[])

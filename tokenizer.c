@@ -25,7 +25,7 @@ unsigned int delim_c(char c, char *delim)
  */
 char *_strtok(char *input_str, char *delim)
 {
-	static char *backup_str = NULL; /*store starting pt 4 next search*/
+	static char *backup_str; /*store starting pt 4 next search*/
 	char *ret;
 
 	if (!input_str)
