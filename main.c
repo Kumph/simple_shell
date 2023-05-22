@@ -18,6 +18,10 @@ int main(void)
 
 		tchars_read = getline(&input, &input_len, stdin);
 
+		if (_strcmp(input, "exit") == 0)
+		{
+			exit(0);
+		}
 		if (tchars_read == -1)
 		{
 			perror("Error: unable to read input");
