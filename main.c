@@ -32,11 +32,11 @@ int main(void)
 		{
 			execute_command(args);
 		}
-		for (i = 0; i< MAX_ARGS; i++)
+		for (i = 0; i < MAX_ARGS; i++)
 		{
 			args[i] = NULL;
 		}
-		
+
 		free(input);
 		input = NULL;
 
