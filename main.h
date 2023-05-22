@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #define MAX_ARGS 10
 
+char *check_path(char *dir, char *cmd);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
