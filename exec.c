@@ -9,7 +9,7 @@ void execute_command(char *args[])
 	int status;
 	pid_t pid;
 	char *path = NULL;
-	
+
 	path = get_path(args[0]);
 	if (path == NULL)
 	{
