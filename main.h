@@ -12,8 +12,8 @@
 char *_getenv(const char *name);
 extern char **environ;
 char *check_path(char *dir, char *cmd);
-int _strcmp(char *s1, char *s2);
-int _strlen(char *s);
+int _strcmp(const char *s1, const char *s2);
+int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void print_prompt(void);
