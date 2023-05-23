@@ -4,6 +4,9 @@
  * main - Simple unix commandline intepreter
  * Return: 0
  */
+
+extern char **environ;
+
 int main(void)
 {
 	char *input = NULL;
@@ -21,6 +24,14 @@ int main(void)
 		if (_strcmp(input, "exit") == 0)
 		{
 			exit(0);
+		}
+		if (_strcmp(input, "env") == 0)
+		{
+			for (i=0; environ[i]!=NULL; i++) 
+			{
+				write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+				write(STDOUT_FILENO, "\n", 1);
+			}
 		}
 		if (tchars_read == -1)
 		{
