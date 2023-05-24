@@ -20,7 +20,7 @@ int main(void)
 		{
 			/*write(STDOUT_FILENO, "\n", 1);
 			break;*/
-			exit(0);
+			exit(EXIT_SUCCESS);
 		}
 			
 		if (_strcmp(input, "exit") == 0)
