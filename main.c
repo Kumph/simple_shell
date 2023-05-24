@@ -17,12 +17,8 @@ int main(void)
 		print_prompt();
 		tchars_read = getline(&input, &input_len, stdin);
 		if (tchars_read == -1)
-		{
-			/*write(STDOUT_FILENO, "\n", 1);
-			break;*/
 			exit(EXIT_SUCCESS);
-		}
-			
+
 		if (_strcmp(input, "exit") == 0)
 			exit(0);
 		if (_strcmp(input, "env") == 0)
@@ -46,7 +42,6 @@ int main(void)
 			args[i] = NULL;
 		free(input);
 		input = NULL;
-
 	}
 	free(input);
 	input = NULL;
