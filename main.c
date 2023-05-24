@@ -18,8 +18,9 @@ int main(void)
 		tchars_read = getline(&input, &input_len, stdin);
 		if (tchars_read == -1)
 		{
-			write(STDOUT_FILENO, "\n", 1);
-			break;
+			/*write(STDOUT_FILENO, "\n", 1);
+			break;*/
+			exit(0);
 		}
 			
 		if (_strcmp(input, "exit") == 0)
