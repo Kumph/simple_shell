@@ -14,7 +14,7 @@ void execute_command(char *args[])
 	if (path == NULL)
 	{
 		/*perror("Error: command does not exist");*/
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 
 	pid = fork();
@@ -22,13 +22,13 @@ void execute_command(char *args[])
 	if (pid == -1)
 	{
 		perror("Error: fork failed");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	else if (pid == 0)
 	{
 		execve(path, args, NULL);
 		perror("Error");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 
 	}
 	else
