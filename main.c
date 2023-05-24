@@ -47,6 +47,7 @@ int main(void)
 		input = NULL;
 
 	}
+	free(input);
 	input = NULL;
 	return (0);
 }
