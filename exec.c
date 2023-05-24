@@ -13,7 +13,7 @@ void execute_command(char *args[])
 	path = get_path(args[0]);
 	if (path == NULL)
 	{
-		perror("Error: command does not exist");
+		/*perror("Error: command does not exist");*/
 		exit(EXIT_FAILURE);
 	}
 
