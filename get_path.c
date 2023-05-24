@@ -21,7 +21,7 @@ char *get_path(char *cmd)
 	_strcpy(p2, path);
 	p = _strtok(p2, ":");
 
-	free(p2);
+	/*free(p2);*/
 
 	/*iterate through the directories in the path*/
 	while (p != NULL)
@@ -30,6 +30,7 @@ char *get_path(char *cmd)
 
 		if (result != NULL)
 		{
+			free(p2);
 			return (result);
 		}
 
