@@ -73,6 +73,8 @@ char *check_path(char *dir, char *cmd)
 		_strcpy(result, path_buffer);
 		free(path_buffer);
 		return (result);
+
+		free(result);
 	}
 	free(path_buffer);
 	return (NULL);
