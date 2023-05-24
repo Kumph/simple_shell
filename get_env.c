@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * _getenv - custom getenv
+ * @name: parameter
+ * Return: NULL
+ */
 char *_getenv(const char *name)
 {
 	int length = _strlen(name);

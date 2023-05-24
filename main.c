@@ -4,9 +4,6 @@
  * main - Simple unix commandline intepreter
  * Return: 0
  */
-
-extern char **environ;
-
 int main(void)
 {
 	char *input = NULL;
@@ -18,16 +15,12 @@ int main(void)
 	while (1)
 	{
 		print_prompt();
-
 		tchars_read = getline(&input, &input_len, stdin);
-
 		if (_strcmp(input, "exit") == 0)
-		{
 			exit(0);
-		}
 		if (_strcmp(input, "env") == 0)
 		{
-			for (i=0; environ[i]!=NULL; i++) 
+			for (i = 0; environ[i] != NULL; i++)
 			{
 				write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 				write(STDOUT_FILENO, "\n", 1);
@@ -38,20 +31,12 @@ int main(void)
 			perror("Error: unable to read input");
 			break;
 		}
-
 		input[_strlen(input) - 1] = '\0';
-
 		parse_input(input, args);
-
 		if (args[0] != NULL)
-		{
 			execute_command(args);
-		}
 		for (i = 0; i < MAX_ARGS; i++)
-		{
 			args[i] = NULL;
-		}
-
 		free(input);
 		input = NULL;
 
