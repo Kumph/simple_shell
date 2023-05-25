@@ -9,6 +9,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #define MAX_ARGS 10
+
+int builtin_cd(char *dir);
 char *_getenv(const char *name);
 extern char **environ;
 char *check_path(char *dir, char *cmd);
