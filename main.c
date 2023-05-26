@@ -28,7 +28,7 @@ int main(void)
 		if (_strcmp(input, "exit") == 0)
 		{
 			free(input);
-			exit(0);
+			exit(232);
 		}
 		if (_strcmp(input, "env") == 0)
 		{
