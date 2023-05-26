@@ -20,7 +20,7 @@ int main(void)
 			break;
 
 		if (_strcmp(input, "exit") == 0)
-			break;
+			handle_exit(input);
 		if (_strcmp(input, "env") == 0)
 		{
 			for (i = 0; environ[i] != NULL; i++)

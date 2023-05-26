@@ -7,7 +7,7 @@
  */
 char *get_path(char *cmd)
 {
-	char *path = getenv("PATH"), *p, *result, *p2 = NULL, *path_buffer;
+	char *path = _getenv("PATH"), *p, *result, *p2 = NULL, *path_buffer;
 	struct stat st;
 
 	p2 = malloc(_strlen(path) + 1);
