@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #define MAX_ARGS 10
 
+int _atoi(char *s);
+void handle_exit(char *input);
 int builtin_cd(char *dir);
 char *_getenv(const char *name);
 extern char **environ;
