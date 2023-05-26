@@ -39,13 +39,13 @@ char *get_path(char *cmd)
 			}
 
 			_strcpy(result, path_buffer);
-			free(path_buffer);
 			break;
 		}
 
 		p = strtok(NULL, ":");
 		free(path_buffer);
 	}
+	free(path_buffer);
 	free(path);
 	return (result);
 }
