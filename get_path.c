@@ -17,7 +17,7 @@ char *get_path(char *cmd)
 		return (NULL);
 	}
 	_strcpy(p2, path);
-	p = _strtok(p2, ":");
+	p = strtok(p2, ":");
 	free(p2);
 	while (p != NULL)
 	{
@@ -42,7 +42,7 @@ char *get_path(char *cmd)
 			free(path_buffer);
 			return (result);
 		}
-		p = _strtok(NULL, ":");
+		p = strtok(NULL, ":");
 		free(path_buffer);
 	}
 	perror("Error:");
