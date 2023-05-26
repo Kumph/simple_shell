@@ -35,7 +35,7 @@ char *get_path(char *cmd)
 			result = malloc(_strlen(path_buffer) + 1);
 			if (result == NULL)
 			{
-				free(path_buffer);
+				/*free(path_buffer);*/
 				return (NULL);
 			}
 			_strcpy(result, path_buffer);
