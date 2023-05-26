@@ -17,13 +17,13 @@ void parse_input(char *input, char *args[])
 		input[input_len - 1] = '\0';
 	}
 
-	token = _strtok(input, " ");
+	token = strtok(input, " ");
 
 	while (token != NULL && arg_count < MAX_ARGS - 1)
 	{
 		args[arg_count] = token;
 		arg_count++;
-		token = _strtok(NULL, " ");
+		token = strtok(NULL, " ");
 	}
 	args[arg_count] = NULL;
 
