@@ -17,10 +17,16 @@ int main(void)
 		print_prompt();
 		tchars_read = getline(&input, &input_len, stdin);
 		if (tchars_read == -1)
-			break;
+		{
+			free(input);
+			exit(EXIT_SUCCESS);
+		}
 
 		if (_strcmp(input, "exit") == 0)
-			handle_exit(input);
+		{
+			free(input);
+			exit(0);
+		}
 		if (_strcmp(input, "env") == 0)
 		{
 			for (i = 0; environ[i] != NULL; i++)
@@ -43,7 +49,5 @@ int main(void)
 		free(input);
 		input = NULL;
 	}
-	free(input);
-	input = NULL;
 	return (0);
 }

@@ -33,9 +33,9 @@ char *get_path(char *cmd)
 		if (stat(path_buffer, &st) == 0 && S_ISREG(st.st_mode))
 		{
 			char *result = malloc(_strlen(path_buffer) + 1);
+
 			if (result == NULL)
 			{
-				
 				return (NULL);
 			}
 			strcpy(result, path_buffer);
