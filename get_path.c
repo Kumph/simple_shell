@@ -25,6 +25,7 @@ char *get_path(char *cmd)
 		if (path_buffer == NULL)
 		{
 			perror("Error: unable to allocate memory");
+			free(p2);
 			return (NULL);
 		}
 		_strcpy(path_buffer, p);
