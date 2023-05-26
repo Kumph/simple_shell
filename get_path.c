@@ -36,7 +36,6 @@ char *get_path(char *cmd)
 
 		p = _strtok(NULL, ":");
 	}
-	perror("Error:");
 
 	return (NULL);
 }
