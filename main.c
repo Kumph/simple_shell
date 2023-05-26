@@ -47,7 +47,7 @@ int main(void)
 			execute_command(args);
 		for (i = 0; i < MAX_ARGS; i++)
 		{
-			free(args[i]);
+			/*free(args[i]);*/
 			args [i] = NULL;
 		}
 		free(input);
