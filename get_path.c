@@ -7,7 +7,7 @@
  */
 char *get_path(char *cmd)
 {
-	char *path = _getenv("PATH"), *p, *result, *p2 = NULL, *path_buffer;
+	char *path = _getenv("PATH"), *p = strtok(p2, ":"), *result, *p2 = NULL, *path_buffer;
 	struct stat st;
 
 	p2 = malloc(_strlen(path) + 1);
@@ -17,7 +17,6 @@ char *get_path(char *cmd)
 		return (NULL);
 	}
 	_strcpy(p2, path);
-	p = strtok(p2, ":");
 	free(p2);
 	while (p != NULL)
 	{
