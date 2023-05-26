@@ -7,7 +7,7 @@
  */
 char *get_path(char *cmd)
 {
-	char *path = _getenv("PATH"), *p, *result, *p2 = NULL, *path_buffer;
+	char *path = _getenv("PATH"), *p, *p2 = NULL, *path_buffer;
 	struct stat st;
 
 	p2 = malloc(_strlen(path) + 1);
@@ -16,37 +16,38 @@ char *get_path(char *cmd)
 		perror("Error: unable to allocate memory");
 		return (NULL);
 	}
-	_strcpy(p2, path);
-	p = _strtok(p2, ":");
+	strcpy(p2, path);
+	p = strtok(p2, ":");
 	free(p2);
 	while (p != NULL)
 	{
-		path_buffer = malloc((_strlen(p) + _strlen(cmd) + 2) * sizeof(char));
+		path_buffer = malloc((strlen(p) + strlen(cmd) + 2) * sizeof(char));
 		if (path_buffer == NULL)
 		{
 			perror("Error: unable to allocate memory");
 			return (NULL);
 		}
-		_strcpy(path_buffer, p);
-		_strcat(path_buffer, "/");
-		_strcat(path_buffer, cmd);
+		strcpy(path_buffer, p);
+		strcat(path_buffer, "/");
+		strcat(path_buffer, cmd);
 		if (stat(path_buffer, &st) == 0 && S_ISREG(st.st_mode))
 		{
-			result = malloc(_strlen(path_buffer) + 1);
+			char *result = malloc(_strlen(path_buffer) + 1);
+
 			if (result == NULL)
 			{
-				/*free(path_buffer);*/
+				free(path_buffer);
 				return (NULL);
 			}
-			_strcpy(result, path_buffer);
+			strcpy(result, path_buffer);
 			free(path_buffer);
 			return (result);
 
 			free(result);
 		}
-		p = _strtok(NULL, ":");
-		free(path_buffer);
+		p = strtok(NULL, ":");
+
 	}
-	perror("Error:");
+	perror("Error: Command not found");
 	return (NULL);
 }

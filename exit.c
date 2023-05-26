@@ -6,9 +6,9 @@
 void handle_exit(char *input)
 {
 	int exit_status;
-	char *exit_status_arg = _strtok(input, " ");
+	char *exit_status_arg = strtok(input, " ");
 
-	exit_status_arg = _strtok(NULL, " ");
+	exit_status_arg = strtok(NULL, " ");
 	exit_status = 0;
 	if (exit_status_arg != NULL)
 		exit_status = _atoi(exit_status_arg);

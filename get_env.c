@@ -6,7 +6,7 @@
  */
 char *_getenv(const char *name)
 {
-	int length = _strlen(name);
+	size_t length = _strlen(name);
 	char **env = environ;
 
 	if (name == NULL)

@@ -26,7 +26,10 @@ int main(void)
 		}
 
 		if (_strcmp(input, "exit") == 0)
-			handle_exit(input);
+		{
+			free(input);
+			exit(0);
+		}
 		if (_strcmp(input, "env") == 0)
 		{
 			for (i = 0; environ[i] != NULL; i++)
@@ -34,6 +37,8 @@ int main(void)
 				write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 				write(STDOUT_FILENO, "\n", 1);
 			}
+			free(environ[i]);
+			environ = NULL;
 		}
 
 		input[_strlen(input) - 1] = '\0';
@@ -48,7 +53,5 @@ int main(void)
 		free(input);
 		input = NULL;
 	}
-	free(input);
-	input = NULL;
 	return (0);
 }

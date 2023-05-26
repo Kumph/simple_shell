@@ -9,15 +9,8 @@ void parse_input(char *input, char *args[])
 {
 	int arg_count = 0;
 	char *token;
-	size_t input_len;
 
-	input_len = _strlen(input);
-	if (input_len > 0 && input[input_len - 1] == '\n')
-	{
-		input[input_len - 1] = '\0';
-	}
-
-	token = _strtok(input, " ");
+	token = strtok(input, " ");
 
 	while (token != NULL && arg_count < MAX_ARGS - 1)
 	{
