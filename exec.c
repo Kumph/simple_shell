@@ -21,6 +21,7 @@ void execute_command(char *args[])
 	path = get_path(args[0]);
 	if (path == NULL)
 	{
+		perror("Error: command not found");
 		write(STDERR_FILENO, "cd: Failed to change directory\n", 31);
 		return;
 	}

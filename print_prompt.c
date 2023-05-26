@@ -7,7 +7,10 @@ void print_prompt(void)
 	char *prompt = "s_shell$ ";
 	int prompt_len = 9;
 
-	if (isatty(STDIN_FILENO))
+	if ((isatty(STDIN_FILENO) == 1) && (isatty(STDOUT_FILENO) == 1))
+		flags.interactive = 1;
+
+	if (flags.interactive)
 	{
 		write(STDOUT_FILENO, prompt, prompt_len);
 	}

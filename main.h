@@ -8,6 +8,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdbool.h>
 #define MAX_ARGS 10
 
 int _atoi(char *s);
@@ -26,5 +27,10 @@ char *_strtok(char *input_str, char *delim);
 void parse_input(char *input, char *args[]);
 char *get_path(char *cmd);
 void execute_command(char *args[]);
+
+struct flags
+{
+	bool interactive;
+}flags;
 
 #endif
