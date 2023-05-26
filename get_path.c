@@ -41,6 +41,8 @@ char *get_path(char *cmd)
 			_strcpy(result, path_buffer);
 			free(path_buffer);
 			return (result);
+
+			free(result);
 		}
 		p = _strtok(NULL, ":");
 		free(path_buffer);

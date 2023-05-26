@@ -12,12 +12,18 @@ int main(void)
 	char *args[MAX_ARGS];
 	int i = 0;
 
+	signal(SIGINT, signal_handler);
+
 	while (1)
 	{
 		print_prompt();
 		tchars_read = getline(&input, &input_len, stdin);
 		if (tchars_read == -1)
-			break;
+		{
+			free(input);
+			input = NULL;
+			exit(0);
+		}
 
 		if (_strcmp(input, "exit") == 0)
 			handle_exit(input);
@@ -29,17 +35,16 @@ int main(void)
 				write(STDOUT_FILENO, "\n", 1);
 			}
 		}
-		if (tchars_read == -1)
-		{
-			perror("Error: unable to read input");
-			break;
-		}
+
 		input[_strlen(input) - 1] = '\0';
 		parse_input(input, args);
 		if (args[0] != NULL)
 			execute_command(args);
 		for (i = 0; i < MAX_ARGS; i++)
-			args[i] = NULL;
+		{
+			free(args[i]);
+			args [i] = NULL;
+		}
 		free(input);
 		input = NULL;
 	}

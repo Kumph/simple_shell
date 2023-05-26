@@ -27,6 +27,7 @@ char *_strtok(char *input_str, char *delim);
 void parse_input(char *input, char *args[]);
 char *get_path(char *cmd);
 void execute_command(char *args[]);
+void signal_handler(int i);
 
 struct flags
 {

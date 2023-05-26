@@ -25,6 +25,7 @@ void parse_input(char *input, char *args[])
 		arg_count++;
 		token = _strtok(NULL, " ");
 	}
+	free(args[arg_count]);
 	args[arg_count] = NULL;
 
 }
