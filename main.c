@@ -49,6 +49,7 @@ int main(void)
 		{
 			/*free(args[i]);*/
 			args [i] = NULL;
+			free(args[i]);
 		}
 		free(input);
 		input = NULL;
